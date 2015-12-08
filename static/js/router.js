@@ -1,24 +1,36 @@
 define(function(require,exports,module){
 	var routerModule=angular.module('rM',['ui.router']);
-	//ç»‘å®šè·¯ç”±çŠ¶æ€åˆ°æ ¹ä½œç”¨åŸŸ
+	//°ó¶¨Â·ÓÉ×´Ì¬µ½¸ù×÷ÓÃÓò
 	routerModule.run(['$rootScope','$state','$stateParams',
 		function($rootScope,$state,$stateParams){
 			$rootScope.$state=$state;
 			$rootScope.$stateParams=$stateParams;
+			$rootScope.$on('$stateChangeStart',function(){
+					console.log($state);
+			});
 		}]);
-	//é…ç½®è·¯ç”±
+	//ÅäÖÃÂ·ÓÉ
 	routerModule.config(['$stateProvider','$urlRouterProvider',
 		function($stateProvider,$urlRouterProvider){
-			//è·¯ç”±é‡å®šå‘
+			//Â·ÓÉÖØ¶¨Ïò
 			$urlRouterProvider
 			.otherwise('/index');
 
-			//è·¯ç”±
+			//Â·ÓÉ
 			$stateProvider
 			.state('index',{
 				url:'/index',
 				templateUrl:'./tpl/panel.html'
-			});
+			})
+			.state('index.app',{
+				url:'/app',
+				views:{
+					leftPanel:{
+						templateUrl:'./tpl/leftPanel.html',
+						controller:'appListCtrl'
+					}
+				}
+			})
 		}]);
 
 	module.exports=routerModule;

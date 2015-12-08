@@ -26,9 +26,9 @@
 			</div>
 		</div>
 		<div class="collapse navbar-collapse" ng-controller="listCtrl">
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav" nav-toggle>
 				<li class="{{$index==curIndex ? 'active' : ''}}" ng-repeat="item in barList">
-					<a ng-href="javascript:void(0);" ng-bind="item.content"></a>
+					<a ui-sref="{{item.data_uri}}" ng-bind="item.content"></a>
 				</li>
 			</ul>
 		</div>
@@ -36,28 +36,7 @@
 	<!-- 头部导航end -->
 	<!-- 主要内容 -->
 	<div id="content" class="clearfix">
-		<div class="left-menu pull-left">
-			<ul class="list-group" id="J_list-group">
-				<li class="list-group-item">
-					<span class="left-menu-title">后台管理demo <i class="glyphicon glyphicon-chevron-down pull-right"></i></span>
-					<div class="list-group sub-list">
-							<a href="javascript:void(0);" class="list-group-item">表单测试</a>
-							<a href="javascript:void(0);" class="list-group-item">表格测试</a>
-							<a href="javascript:void(0);" class="list-group-item">管理界面测试</a>
-					</div>
-				</li>
-				<li class="list-group-item">
-					<span class="left-menu-title">APP列表 <i class="glyphicon glyphicon-chevron-down pull-right"></i></span>
-					<div class="list-group sub-list">
-							<a href="javascript:void(0);" class="list-group-item">列表名单</a>
-							<a href="javascript:void(0);" class="list-group-item">列表修改</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="right-main pull-left">
-			<div ui-view></div>
-		</div>
+		<div ui-view></div>
 	</div>
 	<!-- 主要内容end -->
 	<script type="text/javascript" src="../lib/seajs/sea.js"></script>

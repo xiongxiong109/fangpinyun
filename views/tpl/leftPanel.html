@@ -1,0 +1,15 @@
+<div class="left-menu pull-left">
+	<ul class="list-group" id="J_list-group">
+		<li class="list-group-item" ng-repeat="item in data" left-click>
+			<span class="left-menu-title">{{item.title}}<i class="glyphicon glyphicon-chevron-down pull-right"></i></span>
+			<div class="list-group sub-list">
+					<a
+						href="{{list.data_uri}}"
+						class="list-group-item" 
+						ng-repeat="list in item.list">
+						{{list.name}}
+					</a>
+			</div>
+		</li>
+	</ul>
+</div>
