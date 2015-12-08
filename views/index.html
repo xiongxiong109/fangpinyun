@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>房品云--管理系统</title>
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+	<!-- 登录状态 -->
+	<div class="bar clearfix" ng-controller="navCtrl">
+		<div class="pull-right bar-right">
+			<a ng-href="{{data.indexView.link}}" ng-bind="data.indexView.content"></a>
+			|
+			<span class="admin-name" ng-bind-template="{{data.person.class}} : {{data.person.name}}"></span>
+			|
+			[<a ng-href="{{data.logoutView.link}}" ng-bind="data.logoutView.content"></a>]
+		</div>
+	</div>
+	<!-- 登录状态end -->
+	<!-- 头部导航 -->
+	<div class="navbar navbar-default nav-index">
+		<div class="navbar-header">
+			<div class="navbar-brand">
+				<img src="../static/img/logo.gif" alt="房品云">
+			</div>
+		</div>
+		<div class="collapse navbar-collapse" ng-controller="listCtrl">
+			<ul class="nav navbar-nav">
+				<li class="{{$index==curIndex ? 'active' : ''}}" ng-repeat="item in barList">
+					<a ng-href="javascript:void(0);" ng-bind="item.content"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 头部导航end -->
+	<!-- 主要内容 -->
+	<div id="content" class="clearfix">
+		<div class="left-menu pull-left">
+			<ul class="list-group" id="J_list-group">
+				<li class="list-group-item">
+					<span class="left-menu-title">后台管理demo <i class="glyphicon glyphicon-chevron-down pull-right"></i></span>
+					<div class="list-group sub-list">
+							<a href="javascript:void(0);" class="list-group-item">表单测试</a>
+							<a href="javascript:void(0);" class="list-group-item">表格测试</a>
+							<a href="javascript:void(0);" class="list-group-item">管理界面测试</a>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<span class="left-menu-title">APP列表 <i class="glyphicon glyphicon-chevron-down pull-right"></i></span>
+					<div class="list-group sub-list">
+							<a href="javascript:void(0);" class="list-group-item">列表名单</a>
+							<a href="javascript:void(0);" class="list-group-item">列表修改</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="right-main pull-left">
+			<div ui-view></div>
+		</div>
+	</div>
+	<!-- 主要内容end -->
+	<script type="text/javascript" src="../lib/seajs/sea.js"></script>
+	<script type="text/javascript" src="../lib/seajs/sea.config.js"></script>
+	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript">
+		seajs.use('../static/js/admin');
+	</script>
+</body>
+</html>
