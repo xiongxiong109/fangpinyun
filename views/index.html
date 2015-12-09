@@ -27,8 +27,12 @@
 		</div>
 		<div class="collapse navbar-collapse" ng-controller="listCtrl">
 			<ul class="nav navbar-nav" nav-toggle>
-				<li class="{{$index==curIndex ? 'active' : ''}}" ng-repeat="item in barList">
-					<a ui-sref="{{item.data_uri}}" ng-bind="item.content"></a>
+				<li
+					class="{{$index==curIndex ? 'active' : ''}}"
+					data-uri="{{item.data_uri}}"
+					ng-click="changeModel($index)"
+					ng-repeat="item in barList">
+					<a href="#/{{item.data_uri}}" ng-bind="item.content"></a>
 				</li>
 			</ul>
 		</div>
@@ -36,7 +40,7 @@
 	<!-- 头部导航end -->
 	<!-- 主要内容 -->
 	<div id="content" class="clearfix">
-		<div ui-view></div>
+		<div ui-view="mainPanel"></div>
 	</div>
 	<!-- 主要内容end -->
 	<script type="text/javascript" src="../lib/seajs/sea.js"></script>

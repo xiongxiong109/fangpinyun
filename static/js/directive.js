@@ -1,24 +1,9 @@
 define(function(require,exports,module){
-	// Ö¸ÁîÄ£¿é
+	// æŒ‡ä»¤
 	require('angular');
 	var dModule=angular.module('dM',[]);
 
-	// µ¼º½toggle directiveÇĞ»»µ¼º½µã»÷ÑùÊ½
-	dModule.directive('navToggle',function(){
-		return {
-			restrict:'A',
-			link:function(scope,ele,attr){
-				$(ele).delegate('li','click',function(){
-					var oLi=$(this);
-					scope.$apply(function(){
-						scope.curIndex=oLi.index();
-					});
-				});
-			}
-		}
-	});
-
-	//²à±ßµ¼º½À¸ÊÖ·çÇÙ²Ëµ¥
+	//å·¦ä¾§æ‰‹é£ç´æŒ‡ä»¤
 	dModule.directive('leftClick',function(){
 		return {
 			restrict:'A',
@@ -36,8 +21,17 @@ define(function(require,exports,module){
 						$span.siblings('.sub-list').show();
 					}
 				});
+				$(ele).delegate('.sub-list','click',function(e){
+					if(e.stopPropagation){
+						e.stopPropagation();
+					}
+					else{
+						e.cancelBubble=true;
+					}
+				});
 			}
 		}
 	});
+	
 	module.exports=dModule;
 });

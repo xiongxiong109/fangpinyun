@@ -1,0 +1,14 @@
+{
+	"indexView":{
+		"content":"网站首页",
+		"link":"/login"
+	},
+	"person":{
+		"name":"熊熊109",
+		"class":"超级管理员"
+	},
+	"logoutView":{
+		"content":"注销",
+		"link":"/logout"
+	}
+}

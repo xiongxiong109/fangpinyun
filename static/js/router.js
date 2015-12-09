@@ -5,29 +5,51 @@ define(function(require,exports,module){
 		function($rootScope,$state,$stateParams){
 			$rootScope.$state=$state;
 			$rootScope.$stateParams=$stateParams;
-			$rootScope.$on('$stateChangeStart',function(){
-					console.log($state);
-			});
 		}]);
 	//配置路由
 	routerModule.config(['$stateProvider','$urlRouterProvider',
 		function($stateProvider,$urlRouterProvider){
 			//路由重定向
 			$urlRouterProvider
-			.otherwise('/index');
+			.otherwise('/stage');
 
 			//路由
 			$stateProvider
-			.state('index',{
-				url:'/index',
-				templateUrl:'./tpl/panel.html'
+			.state('stage',{//平台运营
+				url:'/stage',
+				views:{
+					'mainPanel':{
+							templateUrl:'./tpl/leftPanel.html',
+							controller:'stageCtrl'
+						}
+					}
 			})
-			.state('index.app',{
+			.state('stage.module',{//平台运营模块
+				url:'/:module',
+				views:{
+					rightMain:{
+						templateUrl:function(stateParams){
+							return './tpl/stage/stage.'+stateParams.module+'.html';
+						}
+					}
+				}
+			})
+			.state('app',{//APP运营
 				url:'/app',
 				views:{
-					leftPanel:{
+					'mainPanel':{
 						templateUrl:'./tpl/leftPanel.html',
-						controller:'appListCtrl'
+						controller:'appCtrl'
+					}
+				}
+			})
+			.state('app.module',{
+				url:'/:module',
+				views:{
+					'rightMain':{
+						templateUrl:function(stateParams){
+							return './tpl/app/app.'+stateParams.module+'.html';
+						}
 					}
 				}
 			})

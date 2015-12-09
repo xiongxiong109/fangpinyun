@@ -1,0 +1,31 @@
+{
+	"baseRoute":"stage",
+	"listArr":[
+			{
+				"title":"平台运营demo",
+				"list":[
+					{
+						"name":"表单测试",
+						"data_uri":"form"
+					},
+					{
+						"name":"表格测试",
+						"data_uri":"table"
+					}
+				]
+			},
+			{
+				"title":"列表管理demo",
+				"list":[
+					{
+						"name":"列表名单",
+						"data_uri":"list"
+					},
+					{
+						"name":"列表名单",
+						"data_uri":"listModify"
+					}
+				]
+			}
+		]
+}

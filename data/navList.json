@@ -1,0 +1,14 @@
+[
+			{
+				"content":"平台运营",
+				"data_uri":"stage"
+			},
+			{
+				"content":"APP运营",
+				"data_uri":"app"
+			},
+			{
+				"content":"后台管理测试",
+				"data_uri":"manage"
+			}
+		]

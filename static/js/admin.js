@@ -14,6 +14,12 @@ define(function(require,exports,module){
 				'dM',//指令模块
 				'sM'//服务模块
 			]);
+
+			//窗口高度检测重置服务
+			adminModule.run(['adminWindowCheck',function(adminWindowCheck){
+				adminWindowCheck.watchResize();
+			}]);
+			
 			angular.bootstrap(document,['admin']);
 		});
 	});

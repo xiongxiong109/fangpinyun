@@ -1,0 +1,31 @@
+{
+	"baseRoute":"app",
+	"listArr":[
+		{
+			"title":"APP管理demo",
+			"list":[
+				{
+					"name":"app测试",
+					"data_uri":"form"
+				},
+				{
+					"name":"测试",
+					"data_uri":"table"
+				}
+			]
+		},
+		{
+			"title":"APP列表demo",
+			"list":[
+				{
+					"name":"app列表",
+					"data_uri":"list"
+				},
+				{
+					"name":"列表",
+					"data_uri":"listModify"
+				}
+			]
+		}
+	]
+}
