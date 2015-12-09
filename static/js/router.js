@@ -19,7 +19,7 @@ define(function(require,exports,module){
 				url:'/stage',
 				views:{
 					'mainPanel':{
-							templateUrl:'./tpl/leftPanel.html',
+							templateUrl:'./tpl/mainPanel.html',
 							controller:'stageCtrl'
 						}
 					}
@@ -38,7 +38,7 @@ define(function(require,exports,module){
 				url:'/app',
 				views:{
 					'mainPanel':{
-						templateUrl:'./tpl/leftPanel.html',
+						templateUrl:'./tpl/mainPanel.html',
 						controller:'appCtrl'
 					}
 				}
@@ -53,6 +53,22 @@ define(function(require,exports,module){
 					}
 				}
 			})
+			.state('app.list',{
+				url:'/list/:queryId',
+				resolve:{
+					qId:function($stateParams){
+						return {'pageId':$stateParams.queryId}
+					}
+				},
+				views:{
+					'rightMain':{
+						templateUrl:function(stateParams){
+							// console.log(stateParams.queryId);
+							return './tpl/app/app.list.html';
+						}
+					}
+				}
+			});
 		}]);
 
 	module.exports=routerModule;

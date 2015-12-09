@@ -9,6 +9,7 @@ define(function(require,exports,module){
 
 		function getResize(){
 			$("#content").height( $(window).height()-$(".bar").height()-$('.navbar-header').height()-10 );
+			$("#J_mainPanel").height( $("#content").height() );
 		}
 		return {
 			watchResize:function(){
@@ -31,5 +32,19 @@ define(function(require,exports,module){
 				}
 			}
 	}]);
+
+	//获取数组分页片段
+	serviceModule.service('adminArr',function(){
+		return {
+			range:function(arr,start,end){
+				end=end>arr.length ? arr.length : end;
+				var pageArr=[];
+				_.each(_.range(start, end),function(idx){
+					pageArr.push(arr[idx]);
+				});
+				return pageArr;
+			}
+		}
+	});
 	module.exports=serviceModule;
 });
