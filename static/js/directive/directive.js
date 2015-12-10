@@ -1,6 +1,5 @@
 define(function(require,exports,module){
 	// 指令
-	require('angular');
 	var dModule=angular.module('dM',[]);
 
 	//左侧手风琴指令
