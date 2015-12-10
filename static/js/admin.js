@@ -2,12 +2,11 @@ define(function(require,exports,module){
 	//加载angular
 	require.async('angular',function(){
 		require.async('ui-router',function(){
-
-			var ctrlModule=require('./controller');//控制器
-			var direcModule=require('./directive');//指令
-			var serviceModule=require('./service');//服务
+			var ctrlModule=require('./controller/controller');//控制器
+			var direcModule=require('./directive/directive');//指令
+			var serviceModule=require('./service/service');//服务
+			var filterModule=require('./filter/filter');
 			var routerModule=require('./router');//路由
-			var filterModule=require('./filter');
 			//主要模块
 			var adminModule=angular.module('admin',[
 				'rM',//路由模块
