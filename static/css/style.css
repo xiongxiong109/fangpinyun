@@ -81,3 +81,8 @@
 	-o-transform: rotateZ(0deg);
 	transform: rotateZ(0deg);
 }
+
+.pagination a.active{
+	background-color: #C6F9F0;
+}
+/*表单样式*/
